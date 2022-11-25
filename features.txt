@@ -1,0 +1,13 @@
+-----------Shelly Features--------------------
+
+1)greetings according time- morning,afternoon,evening
+2)talk with you.
+3)Tells the current time
+4)Remember anything you tell. and also forget when you tell to forget
+5)Play Music from microsoft music player
+6)Open any website in default browser.
+7)it can take a new desktop
+8)take the screenshot
+9)open and close apps
+10)it can close the tabs in browser
+11)It can do the Shutdown,Logoff,Hibernate,Restart the system
