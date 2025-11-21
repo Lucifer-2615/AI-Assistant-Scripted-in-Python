@@ -11,7 +11,7 @@ engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 # print(voices)
 engine.setProperty('voice', voices[1].id)
-chrome_path = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
+chrome_path = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
 webbrowser.register('chrome', None,webbrowser.BackgroundBrowser(chrome_path))
 
 
@@ -36,7 +36,7 @@ def wishme():
 
 def takeCommand():
     r = sr.Recognizer() 
-    with sr.Microphone() as source:
+    with sr.Microphone(device_index=4, sample_rate=44100, chunk_size=1024) as source:
         print('Listening...')
         r.pause_threshold = 1
         audio = r.listen(source,0,9)
@@ -136,14 +136,12 @@ while True:
 #Application open/close Queries-------------------
 
     elif 'play music' in query:
-        music_dir = 'G:\\Guj Music'
+        music_dir = 'G:\\Songs'
         songs = os.listdir(music_dir)
         os.startfile(os.path.join(music_dir,songs[1]))
 
-    # elif 'open vs code' in query:
-    #     Path = "D:\\Microsoft VS Code\\Code.exe"
-    #     os.startfile(Path)
-        
+    # commandprompt":"cmd","paint":"paint","word":"winword","excel":"excel","chrome":"chrome","vscode":"code","powerpoint":"powerpnt
+    
     elif 'open' in query:
         from open_close import openappweb
         openappweb(query)
@@ -161,6 +159,15 @@ while True:
     
     elif 'close this app' in query:
         pyautogui.hotkey('alt','f4')
+    
+    elif 'switch window' in query:
+        pyautogui.hotkey('alt','tab')
+    
+    elif 'close tab' in query:
+        pyautogui.hotkey('ctrl','w')
+    
+    elif 'open new tab' in query:
+        pyautogui.hotkey('ctrl','t')
     
     elif 'new desktop' in query:
         pyautogui.hotkey('winleft','ctrl','d')
@@ -206,10 +213,7 @@ while True:
         speak("Okay boss, See you soon,take care")
         break
     
-    elif 'sui ja' in query:
-        speak("Okay boss, See you soon,take care")
-        break
-    
+   
     else:
         
         from chatbot import ChatterBot
